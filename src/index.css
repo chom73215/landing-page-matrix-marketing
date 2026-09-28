@@ -1,0 +1,304 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ========================
+   CSS CUSTOM PROPERTIES
+   ======================== */
+:root {
+  --color-black: #080808;
+  --color-dark: #0d0d0d;
+  --color-surface: #111111;
+  --color-border: #1a1a1a;
+  --color-accent: #00ff87;
+  --color-accent-dim: #00cc6a;
+  --color-muted: #666666;
+  --color-subtle: #333333;
+  --color-white: #f5f5f0;
+  
+  --ease-matrix: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out-expo: cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+/* ========================
+   BASE STYLES
+   ======================== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: auto; /* Lenis handles this */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-padding-top: 80px;
+}
+
+section[id] {
+  scroll-margin-top: 80px;
+}
+
+body {
+  background-color: var(--color-black);
+  color: var(--color-white);
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  overflow-x: hidden;
+  cursor: none;
+}
+
+/* Hide default cursor */
+*, *::before, *::after {
+  cursor: none !important;
+}
+
+/* ========================
+   CUSTOM CURSOR
+   ======================== */
+.cursor-dot {
+  width: 8px;
+  height: 8px;
+  background: var(--color-accent);
+  border-radius: 50%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: width 0.2s var(--ease-matrix), height 0.2s var(--ease-matrix), background 0.2s;
+  mix-blend-mode: normal;
+}
+
+.cursor-ring {
+  width: 40px;
+  height: 40px;
+  border: 1px solid rgba(0, 255, 135, 0.4);
+  border-radius: 50%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 9998;
+  transform: translate(-50%, -50%);
+  transition: width 0.4s var(--ease-matrix), height 0.4s var(--ease-matrix), border-color 0.3s;
+}
+
+.cursor-dot.cursor-hover {
+  width: 12px;
+  height: 12px;
+  background: var(--color-white);
+}
+
+.cursor-ring.cursor-hover {
+  width: 60px;
+  height: 60px;
+  border-color: rgba(245, 245, 240, 0.3);
+}
+
+/* ========================
+   SCROLLBAR
+   ======================== */
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-dark);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-subtle);
+  border-radius: 2px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-accent);
+}
+
+/* ========================
+   TYPOGRAPHY
+   ======================== */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  line-height: 1;
+}
+
+/* ========================
+   SELECTION
+   ======================== */
+::selection {
+  background: var(--color-accent);
+  color: var(--color-black);
+}
+
+/* ========================
+   UTILITY CLASSES
+   ======================== */
+.clip-text {
+  overflow: hidden;
+  padding-top: 0.15em;
+  padding-bottom: 0.15em;
+  margin-top: -0.15em;
+  margin-bottom: -0.15em;
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, #00ff87 0%, #00ccff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.accent-border {
+  border: 1px solid var(--color-border);
+}
+
+.section-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
+/* ========================
+   NOISE OVERLAY
+   ======================== */
+.noise-overlay::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.4;
+}
+
+/* ========================
+   GSAP HELPERS
+   ======================== */
+.will-animate {
+  opacity: 0;
+}
+
+.split-line {
+  overflow: hidden;
+  display: block;
+}
+
+/* ========================
+   HORIZONTAL SCROLL
+   ======================== */
+.horizontal-scroll-wrapper {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+/* ========================
+   BUTTON STYLES
+   ======================== */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--color-accent);
+  color: var(--color-black);
+  font-weight: 700;
+  font-size: 0.9rem;
+  letter-spacing: 0.02em;
+  padding: 0.9rem 2rem;
+  border-radius: 100px;
+  border: none;
+  transition: transform 0.3s var(--ease-matrix), background 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary:hover {
+  transform: scale(1.03);
+  background: #00ffaa;
+}
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: transparent;
+  color: var(--color-white);
+  font-weight: 600;
+  font-size: 0.9rem;
+  letter-spacing: 0.02em;
+  padding: 0.9rem 2rem;
+  border-radius: 100px;
+  border: 1px solid var(--color-subtle);
+  transition: border-color 0.3s, color 0.3s, transform 0.3s var(--ease-matrix);
+}
+
+.btn-outline:hover {
+  border-color: var(--color-white);
+  transform: scale(1.03);
+}
+
+/* ========================
+   LINE ANIMATION
+   ======================== */
+.line-draw {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+}
+
+/* ========================
+   REDUCED MOTION
+   ======================== */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  .will-animate {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+/* ========================
+   MOBILE
+   ======================== */
+@media (max-width: 768px) {
+  body {
+    cursor: auto !important;
+  }
+  
+  * {
+    cursor: auto !important;
+  }
+  
+  .cursor-dot,
+  .cursor-ring {
+    display: none;
+  }
+}
+
+/* ========================
+   GRID OVERLAY (decorative)
+   ======================== */
+.grid-bg {
+  background-image: 
+    linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+/* ========================
+   GLOW EFFECT
+   ======================== */
+.glow-accent {
+  box-shadow: 0 0 40px rgba(0, 255, 135, 0.15);
+}
+
+.text-glow {
+  text-shadow: 0 0 40px rgba(0, 255, 135, 0.3);
+}
