@@ -39,26 +39,26 @@ export default function Services() {
       <div className="max-w-[1400px] mx-auto px-6 md:px-10">
         <div className="services-head mb-16 md:mb-24 max-w-3xl">
           <span className="section-label mb-4 block">{s.sectionLabel}</span>
-          <h2 className="text-headline font-extrabold text-white mb-6 whitespace-pre-line">{s.heading}</h2>
-          <p className="text-base text-white/40 leading-relaxed max-w-lg">{s.sub}</p>
+          <h2 className="text-headline font-extrabold text-slate-900 mb-6 whitespace-pre-line">{s.heading}</h2>
+          <p className="text-base text-slate-700 font-medium leading-relaxed max-w-lg">{s.sub}</p>
         </div>
 
-        <div className="divide-y divide-matrix-border">
+        <div className="divide-y divide-slate-200">
           {s.items.map((item, i) => (
-            <div key={i} className="service-row group py-6 md:py-8 flex flex-col md:flex-row md:items-center gap-4 md:gap-8"
+            <div key={i} className="service-row group py-6 md:py-8 flex flex-col md:flex-row md:items-center gap-4 md:gap-8 hover:bg-slate-50/80 px-4 -mx-4 rounded-xl transition-colors duration-200"
               onMouseEnter={() => setActiveIndex(i)} onMouseLeave={() => setActiveIndex(null)} data-cursor-hover>
-              <span className={`text-xs font-bold tracking-widest transition-colors duration-300 w-8 shrink-0 ${activeIndex === i ? 'text-matrix-accent' : 'text-white/20'}`}>{item.num}</span>
-              <div className={`shrink-0 transition-all duration-500 ${activeIndex === i ? 'text-matrix-accent scale-110' : 'text-white/20'}`}>{icons[i]}</div>
-              <h3 className={`text-xl md:text-2xl font-bold transition-colors duration-300 flex-1 ${activeIndex === i ? 'text-white' : 'text-white/70'}`}>
+              <span className={`text-xs font-bold tracking-widest transition-colors duration-300 w-8 shrink-0 ${activeIndex === i ? 'text-matrix-accent' : 'text-slate-600'}`}>{item.num}</span>
+              <div className={`shrink-0 transition-all duration-500 ${activeIndex === i ? 'text-matrix-accent scale-110' : 'text-slate-600'}`}>{icons[i]}</div>
+              <h3 className={`text-xl md:text-2xl font-bold transition-colors duration-300 w-full md:w-[260px] lg:w-[310px] xl:w-[340px] shrink-0 ${activeIndex === i ? 'text-slate-950' : 'text-slate-800'}`}>
                 <span className={`inline-block transition-transform duration-300 ${activeIndex === i ? 'translate-x-2' : ''}`}>{item.title}</span>
               </h3>
-              <p className={`text-sm text-white/40 leading-relaxed transition-all duration-500 max-w-sm ${activeIndex === i ? 'opacity-100' : 'opacity-0 md:opacity-100'}`}>{item.desc}</p>
-              <div className="hidden md:flex gap-2 shrink-0">
+              <p className={`text-sm text-slate-700 font-medium leading-relaxed transition-all duration-500 flex-1 max-w-lg ${activeIndex === i ? 'opacity-100' : 'opacity-0 md:opacity-100'}`}>{item.desc}</p>
+              <div className="hidden md:flex gap-2 shrink-0 md:ml-auto">
                 {item.tags.map((tag) => (
-                  <span key={tag} className={`text-[11px] font-medium px-2.5 py-1 rounded-full border transition-all duration-300 ${activeIndex === i ? 'border-matrix-accent/40 text-matrix-accent bg-matrix-accent/5' : 'border-white/10 text-white/30'}`}>{tag}</span>
+                  <span key={tag} className={`text-[11px] font-semibold px-2.5 py-1 rounded-full border transition-all duration-300 ${activeIndex === i ? 'border-matrix-accent/50 text-matrix-accent bg-emerald-50' : 'border-slate-300 text-slate-700 bg-slate-100'}`}>{tag}</span>
                 ))}
               </div>
-              <svg className={`hidden md:block shrink-0 transition-all duration-300 ${activeIndex === i ? 'text-matrix-accent translate-x-1 opacity-100' : 'text-white/20 opacity-0'}`} width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <svg className={`hidden md:block shrink-0 transition-all duration-300 ${activeIndex === i ? 'text-matrix-accent translate-x-1 opacity-100' : 'text-slate-400 opacity-0'}`} width="20" height="20" viewBox="0 0 20 20" fill="none">
                 <path d="M4 10h12M10 4l6 6-6 6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
             </div>
@@ -67,7 +67,7 @@ export default function Services() {
 
         <div className="mt-16 flex items-center gap-6">
           <a href="#contact" className="btn-primary">{s.viewAll}</a>
-          <span className="text-sm text-white/30">{s.viewAllSub}</span>
+          <span className="text-sm text-slate-700 font-medium">{s.viewAllSub}</span>
         </div>
       </div>
     </section>

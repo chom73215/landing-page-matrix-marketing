@@ -66,24 +66,24 @@ export default function Stats() {
         <div ref={headRef} className="mb-16 flex flex-col md:flex-row md:items-end justify-between gap-4">
           <div>
             <span className="section-label mb-3 block">{s.sectionLabel}</span>
-            <h2 className="text-title font-extrabold text-white whitespace-pre-line">{s.heading}</h2>
+            <h2 className="text-title font-extrabold text-slate-900 whitespace-pre-line">{s.heading}</h2>
           </div>
-          <p className="max-w-xs text-sm text-white/40 leading-relaxed md:text-right">{s.sub}</p>
+          <p className="max-w-xs text-sm text-slate-700 font-medium leading-relaxed md:text-right">{s.sub}</p>
         </div>
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-px bg-matrix-border rounded-2xl overflow-hidden">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-px bg-matrix-border rounded-2xl overflow-hidden shadow-sm">
           {s.items.map((item, i) => (
-            <div key={i} className="stat-card bg-matrix-surface p-8 md:p-10 group hover:bg-[#131313] transition-colors duration-300">
+            <div key={i} className="stat-card bg-white p-8 md:p-10 group hover:bg-slate-50/80 transition-colors duration-300">
               <Counter value={item.value} prefix={item.prefix} suffix={item.suffix} isDecimal={item.value !== Math.floor(item.value)} />
               <div className="mt-4">
-                <div className="text-base font-semibold text-white mb-1">{item.label}</div>
-                <div className="text-xs text-white/35 leading-relaxed">{item.desc}</div>
+                <div className="text-base font-bold text-slate-900 mb-1">{item.label}</div>
+                <div className="text-xs text-slate-600 font-medium leading-relaxed">{item.desc}</div>
               </div>
               <div className="mt-6 h-px w-0 bg-matrix-accent group-hover:w-full transition-all duration-500" />
             </div>
           ))}
         </div>
       </div>
-      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/5 to-transparent" />
+      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent" />
     </section>
   )
 }

@@ -54,26 +54,26 @@ export default function Testimonials() {
       <div className="max-w-[1400px] mx-auto px-6 md:px-10">
         <div className="mb-16">
           <span className="section-label mb-4 block">{tm.sectionLabel}</span>
-          <h2 className="text-headline font-extrabold text-white leading-tight">{tm.heading}</h2>
+          <h2 className="text-headline font-extrabold text-slate-900 leading-tight">{tm.heading}</h2>
         </div>
         <div className="grid lg:grid-cols-12 gap-8 md:gap-12 items-start">
           {/* Nav */}
           <div className="lg:col-span-4 flex flex-row lg:flex-col gap-3">
             {tm.items.map((it, i) => (
               <button key={i} onClick={() => goTo(i)}
-                className={`text-left p-4 rounded-xl border transition-all duration-300 flex-1 lg:flex-initial ${active === i ? 'border-white/20 bg-matrix-surface' : 'border-matrix-border hover:border-white/10'}`}>
+                className={`text-left p-4 rounded-xl border transition-all duration-300 flex-1 lg:flex-initial ${active === i ? 'border-emerald-500/40 bg-emerald-50/50 shadow-sm' : 'border-slate-200 bg-white hover:border-slate-300'}`}>
                 <div className="flex items-center gap-3">
                   <div className="w-9 h-9 rounded-full flex items-center justify-center text-xs font-bold shrink-0 transition-all duration-300"
-                    style={{ background: active === i ? it.color : '#333', color: active === i ? '#000' : '#666' }}>
+                    style={{ background: active === i ? it.color : '#e2e8f0', color: active === i ? '#ffffff' : '#64748b' }}>
                     {it.initials}
                   </div>
                   <div className="hidden lg:block min-w-0">
-                    <div className={`text-sm font-semibold truncate transition-colors duration-300 ${active === i ? 'text-white' : 'text-white/40'}`}>{it.name}</div>
-                    <div className="text-xs text-white/30 truncate">{it.company}</div>
+                    <div className={`text-sm font-semibold truncate transition-colors duration-300 ${active === i ? 'text-slate-950 font-bold' : 'text-slate-800'}`}>{it.name}</div>
+                    <div className="text-xs text-slate-600 font-medium truncate">{it.company}</div>
                   </div>
                 </div>
                 {active === i && (
-                  <div className="hidden lg:block mt-3 h-px bg-matrix-border overflow-hidden rounded-full">
+                  <div className="hidden lg:block mt-3 h-px bg-slate-200 overflow-hidden rounded-full">
                     <div className="h-full rounded-full" style={{ background: it.color, animation: 'progress 5s linear' }} />
                   </div>
                 )}
@@ -82,20 +82,20 @@ export default function Testimonials() {
           </div>
           {/* Quote */}
           <div ref={quoteRef} className="lg:col-span-8">
-            <div className="relative p-8 md:p-12 rounded-2xl border border-matrix-border bg-matrix-surface">
-              <div className="text-[120px] leading-none font-bold text-white/5 absolute top-4 left-8 select-none">"</div>
+            <div className="relative p-8 md:p-12 rounded-2xl border border-slate-200 bg-white shadow-sm">
+              <div className="text-[120px] leading-none font-bold text-slate-900/5 absolute top-4 left-8 select-none">"</div>
               <div className="relative">
                 <div className="inline-flex items-center gap-2 text-xs font-bold px-3 py-1.5 rounded-full mb-6"
-                  style={{ background: `${item.color}20`, color: item.color }}>
+                  style={{ background: `${item.color}15`, color: item.color }}>
                   <div className="w-1.5 h-1.5 rounded-full" style={{ background: item.color }} />
                   {item.result}
                 </div>
-                <blockquote className="text-xl md:text-2xl text-white/80 leading-relaxed font-light mb-8">"{item.quote}"</blockquote>
+                <blockquote className="text-xl md:text-2xl text-slate-900 leading-relaxed font-medium mb-8">"{item.quote}"</blockquote>
                 <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-full flex items-center justify-center text-sm font-bold text-black" style={{ background: item.color }}>{item.initials}</div>
+                  <div className="w-12 h-12 rounded-full flex items-center justify-center text-sm font-bold text-white shadow-sm" style={{ background: item.color }}>{item.initials}</div>
                   <div>
-                    <div className="font-semibold text-white">{item.name}</div>
-                    <div className="text-sm text-white/40">{item.title}, {item.company}</div>
+                    <div className="font-bold text-slate-950 text-base">{item.name}</div>
+                    <div className="text-sm text-slate-600 font-medium">{item.title}, {item.company}</div>
                   </div>
                 </div>
               </div>
@@ -103,7 +103,7 @@ export default function Testimonials() {
             <div className="flex items-center gap-2 mt-6">
               {tm.items.map((_, i) => (
                 <button key={i} onClick={() => goTo(i)}
-                  className={`rounded-full transition-all duration-300 ${active === i ? 'w-8 h-2 bg-matrix-accent' : 'w-2 h-2 bg-white/20 hover:bg-white/40'}`} />
+                  className={`rounded-full transition-all duration-300 ${active === i ? 'w-8 h-2 bg-matrix-accent' : 'w-2 h-2 bg-slate-300 hover:bg-slate-400'}`} />
               ))}
             </div>
           </div>

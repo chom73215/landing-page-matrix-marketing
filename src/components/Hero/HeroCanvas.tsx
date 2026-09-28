@@ -41,7 +41,7 @@ export default function HeroCanvas() {
     window.addEventListener('mousemove', onMouseMove)
 
     const MAX_DIST = 150
-    const ACCENT = '0, 255, 135'
+    const ACCENT = '0, 179, 89'
 
     let time = 0
 

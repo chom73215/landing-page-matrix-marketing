@@ -118,7 +118,7 @@ export default function Navbar() {
         ref={navRef}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           isScrolled
-            ? 'py-4 bg-black/85 backdrop-blur-xl border-b border-white/5'
+            ? 'py-4 bg-white/85 backdrop-blur-xl border-b border-slate-200/80 shadow-sm'
             : 'py-6 bg-transparent'
         }`}
       >
@@ -126,7 +126,7 @@ export default function Navbar() {
           {/* Logo */}
           <a href="/" onClick={handleLogoClick} className="flex flex-col leading-none">
             <span className="text-[11px] font-bold tracking-[0.3em] text-matrix-accent uppercase">MATRIX</span>
-            <span className="text-[11px] font-bold tracking-[0.3em] text-white/80 uppercase">MARKETING</span>
+            <span className="text-[11px] font-bold tracking-[0.3em] text-slate-800 uppercase">MARKETING</span>
           </a>
 
           {/* Desktop Nav */}
@@ -138,15 +138,15 @@ export default function Navbar() {
                   <a
                     href={link.href}
                     onClick={(e) => handleNavClick(e, link.href)}
-                    className={`text-sm font-medium transition-all duration-300 relative group py-1 ${
-                      isActive ? 'text-matrix-accent font-semibold' : 'text-white/60 hover:text-white'
+                    className={`text-sm font-semibold transition-all duration-300 relative group py-1 ${
+                      isActive ? 'text-matrix-accent font-bold' : 'text-slate-800 hover:text-matrix-accent'
                     }`}
                   >
                     {link.label}
                     <span
                       className={`absolute -bottom-1 left-0 h-[2px] bg-matrix-accent rounded-full transition-all duration-300 ${
                         isActive
-                          ? 'w-full opacity-100 shadow-[0_0_10px_rgba(0,255,135,0.7)]'
+                          ? 'w-full opacity-100 shadow-[0_0_8px_rgba(0,179,89,0.5)]'
                           : 'w-0 opacity-0 group-hover:w-full group-hover:opacity-60'
                       }`}
                     />
@@ -162,18 +162,18 @@ export default function Navbar() {
             <button
               onClick={toggle}
               aria-label="Switch language"
-              className="hidden md:flex items-center gap-1.5 text-xs font-bold px-3 py-1.5 rounded-full border border-white/15 text-white/50 hover:border-matrix-accent/50 hover:text-matrix-accent transition-all duration-300"
+              className="hidden md:flex items-center gap-1.5 text-xs font-bold px-3 py-1.5 rounded-full border border-slate-300 text-slate-800 hover:border-matrix-accent hover:text-matrix-accent transition-all duration-300 bg-white shadow-xs"
             >
-              <span className={locale === 'vi' ? 'text-matrix-accent' : 'text-white/40'}>VI</span>
-              <span className="text-white/20">/</span>
-              <span className={locale === 'en' ? 'text-matrix-accent' : 'text-white/40'}>EN</span>
+              <span className={locale === 'vi' ? 'text-matrix-accent' : 'text-slate-500'}>VI</span>
+              <span className="text-slate-300">/</span>
+              <span className={locale === 'en' ? 'text-matrix-accent' : 'text-slate-500'}>EN</span>
             </button>
 
             {/* CTA */}
             <a
               href="#contact"
               onClick={(e) => handleNavClick(e as React.MouseEvent<HTMLAnchorElement>, '#contact')}
-              className="hidden md:inline-flex items-center gap-2 text-sm font-bold text-black bg-matrix-accent px-5 py-2.5 rounded-full hover:bg-[#00ffaa] transition-all duration-300 hover:scale-105"
+              className="hidden md:inline-flex items-center gap-2 text-sm font-bold text-white bg-matrix-accent px-5 py-2.5 rounded-full hover:bg-[#00994c] transition-all duration-300 hover:scale-105 shadow-sm hover:shadow-[0_4px_16px_rgba(0,179,89,0.25)]"
             >
               {t.nav.cta}
               <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
@@ -187,16 +187,16 @@ export default function Navbar() {
               onClick={() => setMenuOpen(!menuOpen)}
               aria-label="Toggle menu"
             >
-              <span className={`block h-px w-6 bg-white transition-all duration-300 ${menuOpen ? 'rotate-45 translate-y-[7px]' : ''}`} />
-              <span className={`block h-px w-6 bg-white transition-all duration-300 ${menuOpen ? 'opacity-0' : ''}`} />
-              <span className={`block h-px w-6 bg-white transition-all duration-300 ${menuOpen ? '-rotate-45 -translate-y-[7px]' : ''}`} />
+              <span className={`block h-px w-6 bg-slate-900 transition-all duration-300 ${menuOpen ? 'rotate-45 translate-y-[7px]' : ''}`} />
+              <span className={`block h-px w-6 bg-slate-900 transition-all duration-300 ${menuOpen ? 'opacity-0' : ''}`} />
+              <span className={`block h-px w-6 bg-slate-900 transition-all duration-300 ${menuOpen ? '-rotate-45 -translate-y-[7px]' : ''}`} />
             </button>
           </div>
         </div>
       </nav>
 
       {/* Mobile Menu */}
-      <div className={`fixed inset-0 z-40 bg-matrix-black transition-all duration-500 flex flex-col justify-center px-8 ${
+      <div className={`fixed inset-0 z-40 bg-white/95 backdrop-blur-2xl transition-all duration-500 flex flex-col justify-center px-8 ${
         menuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
       }`}>
         <ul className="flex flex-col gap-6">
@@ -212,11 +212,11 @@ export default function Navbar() {
                   href={link.href}
                   onClick={(e) => handleNavClick(e, link.href)}
                   className={`text-4xl font-bold transition-all duration-300 flex items-center gap-3 ${
-                    isActive ? 'text-matrix-accent translate-x-2' : 'text-white hover:text-matrix-accent'
+                    isActive ? 'text-matrix-accent translate-x-2' : 'text-slate-900 hover:text-matrix-accent'
                   }`}
                 >
                   {isActive && (
-                    <span className="w-2.5 h-2.5 rounded-full bg-matrix-accent shadow-[0_0_10px_rgba(0,255,135,1)]" />
+                    <span className="w-2.5 h-2.5 rounded-full bg-matrix-accent shadow-[0_0_10px_rgba(0,179,89,1)]" />
                   )}
                   {link.label}
                 </a>
@@ -230,13 +230,13 @@ export default function Navbar() {
           onClick={toggle}
           className="mt-8 flex items-center gap-2 text-sm font-bold w-fit"
         >
-          <span className={`px-3 py-1.5 rounded-full border transition-all duration-300 ${locale === 'vi' ? 'border-matrix-accent text-matrix-accent' : 'border-white/20 text-white/40'}`}>VI</span>
-          <span className={`px-3 py-1.5 rounded-full border transition-all duration-300 ${locale === 'en' ? 'border-matrix-accent text-matrix-accent' : 'border-white/20 text-white/40'}`}>EN</span>
+          <span className={`px-3 py-1.5 rounded-full border transition-all duration-300 ${locale === 'vi' ? 'border-matrix-accent text-matrix-accent bg-emerald-50' : 'border-slate-200 text-slate-400'}`}>VI</span>
+          <span className={`px-3 py-1.5 rounded-full border transition-all duration-300 ${locale === 'en' ? 'border-matrix-accent text-matrix-accent bg-emerald-50' : 'border-slate-200 text-slate-400'}`}>EN</span>
         </button>
 
         <a
           href="#contact"
-          className="mt-6 inline-flex items-center gap-2 text-base font-bold text-black bg-matrix-accent px-6 py-3.5 rounded-full w-fit"
+          className="mt-6 inline-flex items-center gap-2 text-base font-bold text-white bg-matrix-accent px-6 py-3.5 rounded-full w-fit shadow-md"
           onClick={(e) => handleNavClick(e as React.MouseEvent<HTMLAnchorElement>, '#contact')}
         >
           {t.nav.cta} →
