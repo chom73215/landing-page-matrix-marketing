@@ -42,15 +42,15 @@ export default function Solution() {
         <div className="grid lg:grid-cols-2 gap-16 md:gap-24 items-center">
           <div className="solution-head">
             <span className="section-label mb-4 block">{s.sectionLabel}</span>
-            <h2 className="text-headline font-extrabold text-white mb-6 leading-tight whitespace-pre-line">{s.heading}</h2>
-            <p className="text-white/40 text-base leading-relaxed mb-8 max-w-md">{s.desc}</p>
+            <h2 className="text-headline font-extrabold text-slate-900 mb-6 leading-tight whitespace-pre-line">{s.heading}</h2>
+            <p className="text-slate-700 font-medium text-base leading-relaxed mb-8 max-w-md">{s.desc}</p>
             <div className="space-y-4">
               {s.points.map((point, i) => (
                 <div key={i} className="flex items-start gap-3">
                   <div className="w-5 h-5 rounded-full bg-matrix-accent/15 flex items-center justify-center shrink-0 mt-0.5">
                     <div className="w-1.5 h-1.5 rounded-full bg-matrix-accent" />
                   </div>
-                  <span className="text-sm text-white/60">{point}</span>
+                  <span className="text-sm text-slate-800 font-medium">{point}</span>
                 </div>
               ))}
             </div>
@@ -58,17 +58,17 @@ export default function Solution() {
           <div className="nodes-container flex flex-col items-center">
             {s.nodes.map((node, i) => (
               <div key={node.id} className="flex flex-col items-center w-full max-w-sm mx-auto">
-                <div className={`solution-node w-full p-4 md:p-5 rounded-xl border flex items-center gap-4 group transition-all duration-300 ${node.id === 'growth' ? 'border-matrix-accent/30 bg-matrix-accent/5' : 'border-matrix-border bg-matrix-surface'} hover:border-matrix-accent/40`}>
-                  <div className={`w-10 h-10 rounded-lg flex items-center justify-center shrink-0 transition-all duration-300 group-hover:bg-matrix-accent/20 ${node.id === 'growth' ? 'bg-matrix-accent/20 text-matrix-accent' : 'bg-white/5 text-white/50'}`}>
+                <div className={`solution-node w-full p-4 md:p-5 rounded-xl border flex items-center gap-4 group transition-all duration-300 ${node.id === 'growth' ? 'border-emerald-500/40 bg-emerald-50/70 shadow-sm' : 'border-slate-300 bg-white shadow-sm'} hover:border-emerald-500/50 hover:shadow-md`}>
+                  <div className={`w-10 h-10 rounded-lg flex items-center justify-center shrink-0 transition-all duration-300 group-hover:bg-matrix-accent/20 ${node.id === 'growth' ? 'bg-emerald-100 text-matrix-accent' : 'bg-slate-100 text-slate-700'}`}>
                     {nodeIcons[i]}
                   </div>
                   <div className="flex-1 min-w-0">
-                    <div className={`text-sm font-bold tracking-widest mb-0.5 ${node.id === 'growth' ? 'text-matrix-accent' : 'text-white'}`}>{node.label}</div>
-                    <div className="text-xs text-white/35 truncate">{node.desc}</div>
+                    <div className={`text-sm font-bold tracking-widest mb-0.5 ${node.id === 'growth' ? 'text-matrix-accent' : 'text-slate-900'}`}>{node.label}</div>
+                    <div className="text-xs text-slate-600 font-medium truncate">{node.desc}</div>
                   </div>
-                  <span className="text-xs text-white/20 font-mono shrink-0">0{i + 1}</span>
+                  <span className="text-xs text-slate-600 font-mono font-bold shrink-0">0{i + 1}</span>
                 </div>
-                {i < s.nodes.length - 1 && <div className="connector w-px h-6 bg-gradient-to-b from-matrix-accent/30 to-matrix-accent/10 my-1" />}
+                {i < s.nodes.length - 1 && <div className="connector w-px h-6 bg-gradient-to-b from-matrix-accent/50 to-matrix-accent/20 my-1" />}
               </div>
             ))}
           </div>

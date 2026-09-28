@@ -8,14 +8,14 @@ export default {
     extend: {
       colors: {
         'matrix': {
-          'black': '#080808',
-          'dark': '#0d0d0d',
-          'surface': '#111111',
-          'border': '#1a1a1a',
-          'accent': '#00ff87',
-          'accent-dim': '#00cc6a',
-          'muted': '#666666',
-          'subtle': '#333333',
+          'black': '#ffffff',
+          'dark': '#f8fafc',
+          'surface': '#ffffff',
+          'border': '#cbd5e1',
+          'accent': '#00994c',
+          'accent-dim': '#007a3d',
+          'muted': '#334155',
+          'subtle': '#64748b',
         }
       },
       fontFamily: {

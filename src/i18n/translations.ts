@@ -99,7 +99,7 @@ export const translations = {
         'Sai tệp khách hàng.',
         'Chi phí tiếp cận ngày càng tăng.',
         'Nội dung thiếu định hướng rõ ràng.',
-        'Có lưu lượng truy cập nhưng thiếu chuyển đổi.',
+        'Có lưu lượng, thiếu chuyển đổi.',
       ],
       solutionLabel: 'Cách tiếp cận của chúng tôi',
       solutionHeading: 'Biến sự phức tạp\nthành',

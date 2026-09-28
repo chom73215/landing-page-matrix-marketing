@@ -12,34 +12,34 @@ export default function Footer() {
   const year = new Date().getFullYear()
 
   return (
-    <footer className="bg-matrix-black border-t border-matrix-border">
+    <footer className="bg-slate-50 border-t border-slate-200">
       <div className="max-w-[1400px] mx-auto px-6 md:px-10 py-16 md:py-20">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 md:gap-12">
           {/* Brand */}
           <div className="lg:col-span-2">
             <div className="flex flex-col mb-6">
               <span className="text-[11px] font-bold tracking-[0.3em] text-matrix-accent uppercase">MATRIX</span>
-              <span className="text-[11px] font-bold tracking-[0.3em] text-white/50 uppercase">MARKETING</span>
+              <span className="text-[11px] font-bold tracking-[0.3em] text-slate-800 uppercase">MARKETING</span>
             </div>
-            <p className="text-sm text-white/40 leading-relaxed max-w-xs mb-8">{f.desc}</p>
+            <p className="text-sm text-slate-700 font-medium leading-relaxed max-w-xs mb-8">{f.desc}</p>
             <div className="space-y-2 mb-8">
-              <a href="mailto:hello@matrixmarketing.com" className="flex items-center gap-2 text-sm text-white/40 hover:text-matrix-accent transition-colors group">
-                <svg className="w-3.5 h-3.5 text-matrix-accent/60 group-hover:text-matrix-accent transition-colors" viewBox="0 0 16 16" fill="none"><rect x="2" y="4" width="12" height="9" rx="1" stroke="currentColor" strokeWidth="1.2"/><path d="M2 5l6 5 6-5" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round"/></svg>
+              <a href="mailto:hello@matrixmarketing.com" className="flex items-center gap-2 text-sm text-slate-800 hover:text-matrix-accent font-medium transition-colors group">
+                <svg className="w-3.5 h-3.5 text-matrix-accent group-hover:scale-110 transition-transform" viewBox="0 0 16 16" fill="none"><rect x="2" y="4" width="12" height="9" rx="1" stroke="currentColor" strokeWidth="1.2"/><path d="M2 5l6 5 6-5" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round"/></svg>
                 hello@matrixmarketing.com
               </a>
-              <a href="tel:+84000000000" className="flex items-center gap-2 text-sm text-white/40 hover:text-matrix-accent transition-colors group">
-                <svg className="w-3.5 h-3.5 text-matrix-accent/60 group-hover:text-matrix-accent transition-colors" viewBox="0 0 16 16" fill="none"><path d="M13.5 11.3l-2-2a.8.8 0 00-1.1 0l-.7.7a10.7 10.7 0 01-3.7-3.7l.7-.7a.8.8 0 000-1.1l-2-2a.8.8 0 00-1.1 0L2.9 3.3a2 2 0 00.1 2.7l7 7a2 2 0 002.7.1l.7-.7a.8.8 0 000-1.1z" stroke="currentColor" strokeWidth="1.2"/></svg>
+              <a href="tel:+84000000000" className="flex items-center gap-2 text-sm text-slate-800 hover:text-matrix-accent font-medium transition-colors group">
+                <svg className="w-3.5 h-3.5 text-matrix-accent group-hover:scale-110 transition-transform" viewBox="0 0 16 16" fill="none"><path d="M13.5 11.3l-2-2a.8.8 0 00-1.1 0l-.7.7a10.7 10.7 0 01-3.7-3.7l.7-.7a.8.8 0 000-1.1l-2-2a.8.8 0 00-1.1 0L2.9 3.3a2 2 0 00.1 2.7l7 7a2 2 0 002.7.1l.7-.7a.8.8 0 000-1.1z" stroke="currentColor" strokeWidth="1.2"/></svg>
                 +84 XXX XXX XXX
               </a>
-              <div className="flex items-center gap-2 text-sm text-white/40">
-                <svg className="w-3.5 h-3.5 text-matrix-accent/60" viewBox="0 0 16 16" fill="none"><path d="M8 1C5.2 1 3 3.2 3 6c0 4 5 9 5 9s5-5 5-9c0-2.8-2.2-5-5-5z" stroke="currentColor" strokeWidth="1.2"/><circle cx="8" cy="6" r="1.5" stroke="currentColor" strokeWidth="1.2"/></svg>
+              <div className="flex items-center gap-2 text-sm text-slate-800 font-medium">
+                <svg className="w-3.5 h-3.5 text-matrix-accent" viewBox="0 0 16 16" fill="none"><path d="M8 1C5.2 1 3 3.2 3 6c0 4 5 9 5 9s5-5 5-9c0-2.8-2.2-5-5-5z" stroke="currentColor" strokeWidth="1.2"/><circle cx="8" cy="6" r="1.5" stroke="currentColor" strokeWidth="1.2"/></svg>
                 {f.address}
               </div>
             </div>
             <div className="flex items-center gap-3">
               {socials.map((s) => (
                 <a key={s.name} href={s.href} aria-label={s.name}
-                  className="w-8 h-8 rounded-full border border-matrix-border flex items-center justify-center text-white/40 hover:text-matrix-accent hover:border-matrix-accent/40 transition-all duration-300">
+                  className="w-8 h-8 rounded-full border border-slate-300 bg-white flex items-center justify-center text-slate-700 hover:text-matrix-accent hover:border-matrix-accent/50 shadow-xs transition-all duration-300">
                   {s.icon}
                 </a>
               ))}
@@ -49,10 +49,10 @@ export default function Footer() {
           {/* Links */}
           {Object.entries(f.links).map(([category, links]) => (
             <div key={`${locale}-${category}`}>
-              <h4 className="text-xs font-bold tracking-widest text-white/50 uppercase mb-5">{category}</h4>
+              <h4 className="text-xs font-bold tracking-widest text-slate-950 uppercase mb-5">{category}</h4>
               <ul className="space-y-3">
                 {(links as readonly string[]).map((link) => (
-                  <li key={link}><a href="#" className="text-sm text-white/35 hover:text-white transition-colors duration-200">{link}</a></li>
+                  <li key={link}><a href="#" className="text-sm text-slate-700 hover:text-slate-950 font-medium transition-colors duration-200">{link}</a></li>
                 ))}
               </ul>
             </div>
@@ -60,15 +60,15 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="border-t border-matrix-border">
+      <div className="border-t border-slate-200">
         <div className="max-w-[1400px] mx-auto px-6 md:px-10 py-6 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-xs text-white/25">© {year} Matrix Marketing. {f.copyright}</p>
+          <p className="text-xs text-slate-600 font-medium">© {year} Matrix Marketing. {f.copyright}</p>
           <div className="flex items-center gap-6">
-            {f.legal.map((item) => <a key={item} href="#" className="text-xs text-white/25 hover:text-white/50 transition-colors">{item}</a>)}
+            {f.legal.map((item) => <a key={item} href="#" className="text-xs text-slate-600 hover:text-slate-950 font-medium transition-colors">{item}</a>)}
           </div>
           <div className="flex items-center gap-2">
             <div className="w-1.5 h-1.5 rounded-full bg-matrix-accent animate-pulse" />
-            <span className="text-xs text-white/25">{f.available}</span>
+            <span className="text-xs text-slate-700 font-semibold">{f.available}</span>
           </div>
         </div>
       </div>

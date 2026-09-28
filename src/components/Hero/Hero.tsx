@@ -68,10 +68,10 @@ export default function Hero() {
   return (
     <section id="home" className="relative min-h-screen flex flex-col overflow-hidden bg-matrix-black">
       <HeroCanvas />
-      <div className="absolute inset-0 bg-gradient-to-b from-matrix-black/60 via-transparent to-matrix-black pointer-events-none z-10" />
-      <div className="absolute inset-0 bg-gradient-to-r from-matrix-black/80 via-transparent to-matrix-black/30 pointer-events-none z-10" />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-matrix-accent/5 blur-[120px] pointer-events-none z-0" />
-      <div className="absolute top-1/4 right-1/4 w-[300px] h-[300px] rounded-full bg-blue-500/5 blur-[80px] pointer-events-none z-0" />
+      <div className="absolute inset-0 bg-gradient-to-b from-white/70 via-transparent to-white pointer-events-none z-10" />
+      <div className="absolute inset-0 bg-gradient-to-r from-white/80 via-transparent to-white/30 pointer-events-none z-10" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-matrix-accent/10 blur-[120px] pointer-events-none z-0" />
+      <div className="absolute top-1/4 right-1/4 w-[300px] h-[300px] rounded-full bg-blue-500/10 blur-[80px] pointer-events-none z-0" />
       <div className="absolute inset-0 grid-bg opacity-30 z-5 pointer-events-none" />
 
       <div className="relative z-20 flex flex-col justify-center flex-1 max-w-[1400px] mx-auto w-full px-6 md:px-10 pt-28 pb-20 md:pt-40 md:pb-24">
@@ -82,19 +82,19 @@ export default function Hero() {
 
         <h1 className="mb-8 max-w-5xl xl:max-w-6xl">
           <span className="clip-text block">
-            <span ref={line1Ref} className="block text-display font-extrabold text-white leading-[1.08] tracking-tight">{h.line1}</span>
+            <span ref={line1Ref} className="block text-display font-extrabold text-slate-900 leading-[1.08] tracking-tight">{h.line1}</span>
           </span>
           <span className="clip-text block">
-            <span ref={line2Ref} className="block text-display font-extrabold text-white leading-[1.08] tracking-tight">
+            <span ref={line2Ref} className="block text-display font-extrabold text-slate-900 leading-[1.08] tracking-tight">
               {h.line2} <span className="text-gradient italic">{h.line2Accent}</span>
             </span>
           </span>
           <span className="clip-text block">
-            <span ref={line3Ref} className="block text-display font-extrabold text-white leading-[1.08] tracking-tight">{h.line3}</span>
+            <span ref={line3Ref} className="block text-display font-extrabold text-slate-900 leading-[1.08] tracking-tight">{h.line3}</span>
           </span>
         </h1>
 
-        <p ref={subtitleRef} className="max-w-xl text-base md:text-lg text-white/50 leading-relaxed mb-10 font-light">
+        <p ref={subtitleRef} className="max-w-xl text-base md:text-lg text-slate-800 leading-relaxed mb-10 font-medium">
           {h.subtitle}
         </p>
 
@@ -115,11 +115,11 @@ export default function Hero() {
           </a>
         </div>
 
-        <div className="mt-16 pt-8 border-t border-white/5 flex flex-wrap gap-8 md:gap-16">
+        <div className="mt-16 pt-8 border-t border-slate-300 flex flex-wrap gap-8 md:gap-16">
           {h.stats.map((s) => (
             <div key={s.label} className="flex flex-col">
               <span className="text-2xl md:text-3xl font-extrabold text-matrix-accent tracking-tight">{s.num}</span>
-              <span className="text-sm text-white/40 font-medium">{s.label}</span>
+              <span className="text-sm text-slate-700 font-semibold">{s.label}</span>
             </div>
           ))}
         </div>
@@ -137,15 +137,15 @@ export default function Hero() {
         <img
           src="/hero-girl.png"
           alt="Matrix Marketing Hero"
-          className="w-full h-auto object-contain drop-shadow-[0_25px_60px_rgba(0,0,0,0.85)]"
+          className="w-full h-auto object-contain drop-shadow-[0_20px_40px_rgba(0,0,0,0.15)]"
         />
       </div>
 
       <div ref={scrollIndicatorRef} className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2">
-        <span className="text-[11px] tracking-[0.2em] text-white/30 uppercase">{h.scroll}</span>
+        <span className="text-[11px] tracking-[0.2em] text-slate-600 font-bold uppercase">{h.scroll}</span>
         <div className="scroll-arrow">
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-            <path d="M10 4v12M4 10l6 6 6-6" stroke="rgba(255,255,255,0.3)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+            <path d="M10 4v12M4 10l6 6 6-6" stroke="rgba(15,23,42,0.65)" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
         </div>
       </div>

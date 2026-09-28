@@ -37,34 +37,34 @@ export default function Process() {
         <div className="process-head mb-16 md:mb-24 flex flex-col md:flex-row md:items-end justify-between gap-6">
           <div>
             <span className="section-label mb-4 block">{p.sectionLabel}</span>
-            <h2 className="text-headline font-extrabold text-white leading-tight whitespace-pre-line">{p.heading}</h2>
+            <h2 className="text-headline font-extrabold text-slate-900 leading-tight whitespace-pre-line">{p.heading}</h2>
           </div>
-          <p className="max-w-xs text-sm text-white/40 leading-relaxed">{p.sub}</p>
+          <p className="max-w-xs text-sm text-slate-700 font-medium leading-relaxed">{p.sub}</p>
         </div>
         <div ref={timelineRef} className="relative">
-          <div className="hidden md:block absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-px bg-matrix-border">
+          <div className="hidden md:block absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-px bg-slate-200">
             <div className="timeline-progress-line absolute inset-0 bg-gradient-to-b from-matrix-accent to-matrix-accent/20" />
           </div>
           <div className="flex flex-col gap-8 md:gap-12">
             {p.steps.map((step, i) => (
               <div key={step.num} className={`process-step flex flex-col ${i % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} items-start md:items-center gap-4 md:gap-12`}>
                 <div className={`flex-1 ${i % 2 === 0 ? 'md:text-right' : 'md:text-left'}`}>
-                  <div className={`inline-block p-6 md:p-8 rounded-2xl border border-matrix-border bg-matrix-surface hover:border-matrix-accent/20 transition-all duration-300 group max-w-md ${i % 2 === 0 ? 'md:ml-auto' : 'md:mr-auto'}`}>
+                  <div className={`inline-block p-6 md:p-8 rounded-2xl border border-slate-200 bg-white shadow-sm hover:shadow-md hover:border-emerald-500/40 transition-all duration-300 group max-w-md ${i % 2 === 0 ? 'md:ml-auto' : 'md:mr-auto'}`}>
                     <div className={`flex items-center gap-3 mb-4 ${i % 2 === 0 ? 'md:flex-row-reverse' : ''}`}>
                       <span className="text-xs font-bold text-matrix-accent tracking-widest">{step.num}</span>
-                      <div className="flex-1 h-px bg-matrix-border group-hover:bg-matrix-accent/20 transition-colors" />
-                      <span className="text-xs text-white/30 font-mono">{step.detail}</span>
+                      <div className="flex-1 h-px bg-slate-200 group-hover:bg-matrix-accent/40 transition-colors" />
+                      <span className="text-xs text-slate-600 font-mono font-bold">{step.detail}</span>
                     </div>
-                    <h3 className="text-xl md:text-2xl font-bold text-white mb-3">{step.title}</h3>
-                    <p className="text-sm text-white/40 leading-relaxed mb-4">{step.desc}</p>
+                    <h3 className="text-xl md:text-2xl font-bold text-slate-900 mb-3">{step.title}</h3>
+                    <p className="text-sm text-slate-700 font-medium leading-relaxed mb-4">{step.desc}</p>
                     <div className={`flex flex-wrap gap-2 ${i % 2 === 0 ? 'md:justify-end' : ''}`}>
                       {step.items.map((item) => (
-                        <span key={item} className="text-xs px-2.5 py-1 rounded-full border border-white/10 text-white/40">{item}</span>
+                        <span key={item} className="text-xs px-2.5 py-1 rounded-full border border-slate-300 bg-slate-100 text-slate-800 font-semibold">{item}</span>
                       ))}
                     </div>
                   </div>
                 </div>
-                <div className="hidden md:flex items-center justify-center w-10 h-10 shrink-0 rounded-full bg-matrix-dark border-2 border-matrix-accent z-10">
+                <div className="hidden md:flex items-center justify-center w-10 h-10 shrink-0 rounded-full bg-white border-2 border-matrix-accent z-10 shadow-sm">
                   <div className="w-3 h-3 rounded-full bg-matrix-accent" />
                 </div>
                 <div className="hidden md:block flex-1" />
